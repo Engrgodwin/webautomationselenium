@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -71,7 +72,7 @@ public class AutoTestingPractiseBlog {
         // Testing the Email Field
         WebElement emailField = driver.findElement(By.id("email"));
         emailField.clear();
-        emailField.sendKeys("automationpracticeblog@gmail.com");
+        emailField.sendKeys("automation@gmail.com");
 
         // Testing the Phone Number Field
         WebElement phoneNumberField = driver.findElement(By.id("phone"));
@@ -94,21 +95,36 @@ public class AutoTestingPractiseBlog {
 
         // Days Check Box
         //Sunday
-        WebElement sunday = driver.findElement(By.xpath("//input[@id='sunday']"));
+        WebElement sunday = driver.findElement(By.xpath("//input[@id ='sunday']"));
         sunday.click();
 
-        WebElement wednesday = driver.findElement(By.xpath("//input[@id='wednesday']"));
+        // Wednesday
+        WebElement wednesday = driver.findElement(By.xpath("//input[@id ='wednesday']"));
         wednesday.click();
 
-        WebElement friday = driver.findElement(By.xpath("//input[@id='friday']"));
+        // Thursday
+        WebElement friday = driver.findElement(By.xpath("//input[@id ='friday']"));
         friday.click();
+
+        // Country dropdown Menu
+        WebElement dropdown = driver.findElement(By.id("country"));
+        Select selectDropdown = new Select(dropdown);
+        selectDropdown.selectByVisibleText("United States");
+        selectDropdown.selectByVisibleText("United Kingdom");
+        selectDropdown.selectByVisibleText("Germany");
+        selectDropdown.selectByVisibleText("France");
+        selectDropdown.selectByVisibleText("Australia");
+        selectDropdown.selectByVisibleText("Japan");
+
+
 
 
     }
 
         @AfterTest
         public void closeBrowser() {
-            driver.quit();
+
+        driver.quit();
         }
 
 
