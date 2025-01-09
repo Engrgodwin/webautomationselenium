@@ -106,7 +106,7 @@ public class AutoTestingPractiseBlog {
         WebElement friday = driver.findElement(By.xpath("//input[@id ='friday']"));
         friday.click();
 
-        // Country dropdown Menu
+        // Country dropxdown Menu
         WebElement dropdown = driver.findElement(By.id("country"));
         Select selectDropdown = new Select(dropdown);
         selectDropdown.selectByVisibleText("United States");
